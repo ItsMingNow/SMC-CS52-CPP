@@ -1,6 +1,6 @@
 //
 // Name: Yanming Yu
-// SSID: Student ID Number
+// SSID: 1748671
 // Assignment #: 1
 // Submission Date: 3/2/21 //
 // Program Description: This program prints the
