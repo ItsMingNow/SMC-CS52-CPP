@@ -40,40 +40,65 @@ int main(int argc, char *argv[])
     cout << "argument contents: " << argv[i] << endl;
   }
 
-  // argument list needs to be higher than 5 change later
-  if (argc > 1)
+  for (int i = 0; i < argc; i++)
   {
-
-    if (string(argv[1]) == "-p")
+    if (string(argv[i]) == "-p")
     {
-      cout << "plaintext accessed" << endl;
-      // plaintext = string(argv[2]);
-      plaintext = argv[2];
-      cout << "plaintext was" << plaintext << endl;
-
-      // Get key value
-
-      // run encryption function through the plaintext
-      // create new array
-      // function iterates through plaintext
-      // each letter adds key value
-      // push new letter into array
-      // ciphertext = newArray
-      // return newArray
-
-      // cout << "The ciphertext is: " << ciphertext << endl
-    }
-    if (string(argv[1]) == "-c")
-    {
-      cout << "cipher accessed" << endl;
-      plaintext = argv[2];
-      cout << "ciphertext was" << plaintext << endl;
+      plaintext = argv[i + 1];
+      cout << "plaintext was: " << plaintext << endl;
     }
     if (string(argv[1]) == "-k")
     {
-      cout << "key accessed" << endl;
+      // key = stoi(argv[i + 1]);
+      std::cout << typeid(argv[i + 1]).name() << std::endl;
+    }
+    if (string(argv[1]) == "-c")
+    {
+    }
+    if (string(argv[1]) == "-E")
+    {
+    }
+    if (string(argv[1]) == "-D")
+    {
     }
   }
+
+  // Attempt 1
+  // argument list needs to be higher than 5 change later
+  // if (argc > 1)
+  // {
+
+  //   if (string(argv[1]) == "-p")
+  //   {
+  //     cout << "plaintext accessed" << endl;
+  //     // plaintext = string(argv[2]);
+  //     plaintext = argv[2];
+  //     cout << "plaintext was" << plaintext << endl;
+
+  //     // Get key value
+  //     key = argv[4]
+
+  //     // run encryption function through the plaintext
+  //     // create new array
+  //     // function iterates through plaintext
+  //     // each letter adds key value
+  //     // push new letter into array
+  //     // ciphertext = newArray
+  //     // return newArray
+
+  //     // cout << "The ciphertext is: " << ciphertext << endl
+  //   }
+  //   if (string(argv[1]) == "-c")
+  //   {
+  //     cout << "cipher accessed" << endl;
+  //     plaintext = argv[2];
+  //     cout << "ciphertext was" << plaintext << endl;
+  //   }
+  //   if (string(argv[1]) == "-k")
+  //   {
+  //     cout << "key accessed" << endl;
+  //   }
+  // }
 
   return 0;
 }
