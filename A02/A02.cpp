@@ -32,8 +32,11 @@ int main(int argc, char *argv[])
   string plaintext;
   string ciphertext;
 
+  char codebook[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'p', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+
   // access argc
-  cout << "Argument Count " << argc << endl;
+  cout
+      << "Argument Count " << argc << endl;
 
   // access command line arguments
   for (int i = 0; i < argc; i++)
@@ -46,6 +49,7 @@ int main(int argc, char *argv[])
     if (string(argv[i]) == "-p")
     {
       plaintext = argv[i + 1];
+      cout << "plaintext if statement: " << plaintext << endl;
     }
     if (string(argv[i]) == "-k")
     {
