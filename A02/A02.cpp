@@ -64,6 +64,10 @@ int main(int argc, char *argv[])
     }
   }
 
+  cout << "Press any key to exit" << endl;
+
+  cin.get();
+
   return 0;
 }
 
@@ -127,80 +131,3 @@ void decrypt(string &ciphertext, int k)
 
   cout << "The plaintext is: " << newString << endl;
 }
-
-// // access argc
-//   cout << "Argument Count " << argc << endl;
-
-//   // access command line arguments
-//   for (int i = 0; i < argc; i++)
-//   {
-//     cout << "argument contents: " << argv[i] << endl;
-//   }
-
-// void encrypt(string &plaintext, int k)
-// {
-//   cout << "Encrypt entered, plaintext was: " << plaintext << endl;
-
-//   string newString;
-
-//   for (int i = 0; i < plaintext.length(); i++)
-//   {
-//     // cout << "iteration: [" << i << "] " << plaintext[i] << endl;
-
-//     int num = (int)plaintext[i];
-
-//     // cout << "casted value of char: " << num << endl;
-
-//     num = num + k;
-
-//     // cout << "New value of char after adding key: " << num << endl;
-
-//     char newChar = (char)num;
-
-//     // cout << "Converted letter: " << newChar << endl;
-
-//     newString += newChar;
-//   }
-
-//   cout << "The ciphertext is: " << newString << endl;
-//   // iterate through plaintext X
-//   // each iteration convert char to ascii number X
-//   // each iteration add the key value to ascii value X
-//   // each iteration convert ascii value back to char
-//   // push char value into array
-//   // return array
-// }
-
-// void decrypt(string &ciphertext, int k)
-// {
-//   cout << "Decrypt entered, ciphertext is: " << ciphertext << endl;
-
-//   string newString;
-
-//   for (int i = 0; i < ciphertext.length(); i++)
-//   {
-//     // cout << "iteration: [" << i << "] " << plaintext[i] << endl;
-
-//     int num = (int)ciphertext[i];
-
-//     // cout << "casted value of char: " << num << endl;
-
-//     num = num - k;
-
-//     // cout << "New value of char after adding key: " << num << endl;
-
-//     char newChar = (char)num;
-
-//     // cout << "Converted letter: " << newChar << endl;
-
-//     newString += newChar;
-//   }
-
-//   cout << "The plaintext is: " << newString << endl;
-//   // iterate through ciphertext
-//   // each iteration convert char to ascii number
-//   // each iteration subtract the key value to ascii value
-//   // each iteration convert ascii value back to char
-//   // push char value into array
-//   // return array
-// }
