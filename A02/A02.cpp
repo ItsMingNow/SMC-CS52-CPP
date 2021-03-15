@@ -115,7 +115,7 @@ void decrypt(string &ciphertext, int k)
       {
         if ((j - k) < 0)
         {
-          newString += codebook[CBL + (j - k)];
+          newString += codebook[(((j - k) % CBL) + CBL)];
         }
         else
         {
