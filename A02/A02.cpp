@@ -21,6 +21,13 @@ using namespace std;
 
 #define CBL 64
 
+char codebook[] = {'Z', 'z', 'Y', 'y', 'X', 'x', 'W', 'w', 'V', 'v', 'U', 'u',
+                   'T', 't', 'S', 's', 'R', 'r', 'Q', 'q', 'P', 'p', 'O', 'o',
+                   'N', 'n', 'M', 'm', 'L', 'l', 'K', 'k', 'J', 'j', 'I', 'i',
+                   'H', 'h', 'G', 'g', 'F', 'f', 'E', 'e', 'D', 'd', 'C', 'c',
+                   'B', 'b', 'A', 'a', '9', '8', '7', '6', '5', '4', '3', '2',
+                   '1', '0', '#', '!'};
+
 //Todo A2: encrypt using stf::string
 void encrypt(string &plaintext, int k);
 
@@ -62,12 +69,6 @@ int main(int argc, char *argv[])
 
 void encrypt(string &plaintext, int k)
 {
-  char codebook[] = {'Z', 'z', 'Y', 'y', 'X', 'x', 'W', 'w', 'V', 'v', 'U', 'u',
-                     'T', 't', 'S', 's', 'R', 'r', 'Q', 'q', 'P', 'p', 'O', 'o',
-                     'N', 'n', 'M', 'm', 'L', 'l', 'K', 'k', 'J', 'j', 'I', 'i',
-                     'H', 'h', 'G', 'g', 'F', 'f', 'E', 'e', 'D', 'd', 'C', 'c',
-                     'B', 'b', 'A', 'a', '9', '8', '7', '6', '5', '4', '3', '2',
-                     '1', '0', '#', '!'};
 
   cout << "Encrypt entered, plaintext was: " << plaintext << endl;
 
@@ -101,12 +102,6 @@ void encrypt(string &plaintext, int k)
 
 void decrypt(string &ciphertext, int k)
 {
-  char codebook[] = {'Z', 'z', 'Y', 'y', 'X', 'x', 'W', 'w', 'V', 'v', 'U', 'u',
-                     'T', 't', 'S', 's', 'R', 'r', 'Q', 'q', 'P', 'p', 'O', 'o',
-                     'N', 'n', 'M', 'm', 'L', 'l', 'K', 'k', 'J', 'j', 'I', 'i',
-                     'H', 'h', 'G', 'g', 'F', 'f', 'E', 'e', 'D', 'd', 'C', 'c',
-                     'B', 'b', 'A', 'a', '9', '8', '7', '6', '5', '4', '3', '2',
-                     '1', '0', '#', '!'};
 
   cout << "Decrypt entered, ciphertext is: " << ciphertext << endl;
 
@@ -118,7 +113,14 @@ void decrypt(string &ciphertext, int k)
     {
       if (ciphertext[i] == codebook[j])
       {
-        newString += codebook[j - k];
+        if ((j - k) < 0)
+        {
+          newString += codebook[CBL + (j - k)];
+        }
+        else
+        {
+          newString += codebook[j - k];
+        }
       }
     }
   }
