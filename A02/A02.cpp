@@ -20,7 +20,7 @@
 using namespace std;
 
 //Todo A2: encrypt using stf::string
-void encrypt(std::string &plaintext, int k);
+void encrypt(string &plaintext, int k);
 
 //Todo A2: decrypt using std::string
 void decrypt(std::string &ciphertext, int k);
@@ -28,11 +28,12 @@ void decrypt(std::string &ciphertext, int k);
 int main(int argc, char *argv[])
 {
   int key;
+  string keystring;
   string plaintext;
   string ciphertext;
 
   // access argc
-  cout << "argc = " << argc << endl;
+  cout << "Argument Count " << argc << endl;
 
   // access command line arguments
   for (int i = 0; i < argc; i++)
@@ -45,60 +46,94 @@ int main(int argc, char *argv[])
     if (string(argv[i]) == "-p")
     {
       plaintext = argv[i + 1];
-      cout << "plaintext was: " << plaintext << endl;
     }
-    if (string(argv[1]) == "-k")
+    if (string(argv[i]) == "-k")
     {
-      // key = stoi(argv[i + 1]);
-      std::cout << typeid(argv[i + 1]).name() << std::endl;
+      key = stoi(argv[i + 1]);
+      // cout << key << endl;
     }
-    if (string(argv[1]) == "-c")
+    if (string(argv[i]) == "-c" || string(argv[i]) == "-C")
     {
+      ciphertext = argv[i + 1];
+      cout << "ciphertext was: " << plaintext << endl;
     }
-    if (string(argv[1]) == "-E")
+    if (string(argv[i]) == "-E")
     {
+      encrypt(plaintext, key);
     }
-    if (string(argv[1]) == "-D")
+    if (string(argv[i]) == "-D")
     {
+      decrypt(ciphertext, key);
     }
   }
 
-  // Attempt 1
-  // argument list needs to be higher than 5 change later
-  // if (argc > 1)
-  // {
-
-  //   if (string(argv[1]) == "-p")
-  //   {
-  //     cout << "plaintext accessed" << endl;
-  //     // plaintext = string(argv[2]);
-  //     plaintext = argv[2];
-  //     cout << "plaintext was" << plaintext << endl;
-
-  //     // Get key value
-  //     key = argv[4]
-
-  //     // run encryption function through the plaintext
-  //     // create new array
-  //     // function iterates through plaintext
-  //     // each letter adds key value
-  //     // push new letter into array
-  //     // ciphertext = newArray
-  //     // return newArray
-
-  //     // cout << "The ciphertext is: " << ciphertext << endl
-  //   }
-  //   if (string(argv[1]) == "-c")
-  //   {
-  //     cout << "cipher accessed" << endl;
-  //     plaintext = argv[2];
-  //     cout << "ciphertext was" << plaintext << endl;
-  //   }
-  //   if (string(argv[1]) == "-k")
-  //   {
-  //     cout << "key accessed" << endl;
-  //   }
-  // }
-
   return 0;
+}
+
+void encrypt(string &plaintext, int k)
+{
+  cout << "Encrypt entered, plaintext was: " << plaintext << endl;
+
+  string newString;
+
+  for (int i = 0; i < plaintext.length(); i++)
+  {
+    // cout << "iteration: [" << i << "] " << plaintext[i] << endl;
+
+    int num = (int)plaintext[i];
+
+    // cout << "casted value of char: " << num << endl;
+
+    num = num + k;
+
+    // cout << "New value of char after adding key: " << num << endl;
+
+    char newChar = (char)num;
+
+    // cout << "Converted letter: " << newChar << endl;
+
+    newString += newChar;
+  }
+
+  cout << "The ciphertext is: " << newString << endl;
+  // iterate through plaintext X
+  // each iteration convert char to ascii number X
+  // each iteration add the key value to ascii value X
+  // each iteration convert ascii value back to char
+  // push char value into array
+  // return array
+}
+
+void decrypt(string &ciphertext, int k)
+{
+  cout << "Decrypt entered, ciphertext is: " << ciphertext << endl;
+
+  string newString;
+
+  for (int i = 0; i < ciphertext.length(); i++)
+  {
+    // cout << "iteration: [" << i << "] " << plaintext[i] << endl;
+
+    int num = (int)ciphertext[i];
+
+    // cout << "casted value of char: " << num << endl;
+
+    num = num - k;
+
+    // cout << "New value of char after adding key: " << num << endl;
+
+    char newChar = (char)num;
+
+    // cout << "Converted letter: " << newChar << endl;
+
+    newString += newChar;
+  }
+
+  cout << "The plaintext is: " << newString << endl;
+  // iterate through ciphertext
+  // each iteration convert char to ascii number
+  // each iteration subtract the key value to ascii value
+  // each iteration convert ascii value back to char
+  // push char value into array
+  // return array
 }
