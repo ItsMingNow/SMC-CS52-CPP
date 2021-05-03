@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
     }
   }
 
-  cout << "Press any key to exit" << endl;
+  cout << "Press enter to exit" << endl;
 
   cin.get();
 
