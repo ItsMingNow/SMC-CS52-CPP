@@ -1,3 +1,11 @@
+// Name: Yanming Yu
+// SSID: 1748671
+// Assignment #: 4
+// Submission Date: 4/13/2021
+//
+// Description: Vector
+//
+
 #include <iostream>
 #include <typeinfo>
 #include <string>
